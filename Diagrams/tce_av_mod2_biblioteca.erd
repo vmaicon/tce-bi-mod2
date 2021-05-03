@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="tce_av_mod2_biblioteca.erd">
+	<entities>
+		<data-source id="mysql8-1792fc5f4b2-1bba6b6178c8af7">
+			<entity id="1" name="AUTOR" fq-name="tce_av_mod2_biblioteca.AUTOR" order="0" x="265" y="230">
+				<path name="tce_av_mod2_biblioteca"/>
+			</entity>
+			<entity id="2" name="AUTORLIVRO" fq-name="tce_av_mod2_biblioteca.AUTORLIVRO" order="1" x="68" y="147">
+				<path name="tce_av_mod2_biblioteca"/>
+			</entity>
+			<entity id="3" name="CLIENTE" fq-name="tce_av_mod2_biblioteca.CLIENTE" order="2" x="583" y="40">
+				<path name="tce_av_mod2_biblioteca"/>
+			</entity>
+			<entity id="4" name="LIVRO" fq-name="tce_av_mod2_biblioteca.LIVRO" order="3" x="249" y="47">
+				<path name="tce_av_mod2_biblioteca"/>
+			</entity>
+			<entity id="5" name="VENDA" fq-name="tce_av_mod2_biblioteca.VENDA" order="4" x="450" y="168">
+				<path name="tce_av_mod2_biblioteca"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="AUTORLIVRO_ibfk_1" fq-name="tce_av_mod2_biblioteca.AUTORLIVRO.AUTORLIVRO_ibfk_1" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="VENDA_ibfk_1" fq-name="tce_av_mod2_biblioteca.VENDA.VENDA_ibfk_1" type="fk" pk-ref="3" fk-ref="5"/>
+		<relation name="AUTORLIVRO_ibfk_2" fq-name="tce_av_mod2_biblioteca.AUTORLIVRO.AUTORLIVRO_ibfk_2" type="fk" pk-ref="4" fk-ref="2"/>
+		<relation name="VENDA_FK" fq-name="tce_av_mod2_biblioteca.VENDA.VENDA_FK" type="fk" pk-ref="4" fk-ref="5"/>
+	</relations>
+</diagram>

@@ -1,0 +1,12 @@
+# Created by https://www.toptal.com/developers/gitignore/api/dbeaver
+# Edit at https://www.toptal.com/developers/gitignore?templates=dbeaver
+
+### DBeaver ###
+# ide config file
+.dbeaver-data-sources*.xml
+.dbeaver/
+.project
+Bookmarks/*
+
+
+# End of https://www.toptal.com/developers/gitignore/api/dbeaver
