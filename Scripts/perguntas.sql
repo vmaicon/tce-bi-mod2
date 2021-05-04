@@ -59,13 +59,29 @@ WHERE CODLIVRO = 10;
 SELECT * 
 FROM CLIENTE 
 WHERE IDCLIENTE = 4000;
+
 -- Resposta: remove o cliente ID 4000
 DELETE FROM CLIENTE 
 WHERE IDCLIENTE = 4000;
 
 -- 7- Quais os títulos dos livros da área de  Tecnologia?
 
+-- Resposta
+SELECT TITULO 
+FROM LIVRO  
+WHERE AREA = 'Tecnologia';
+
 -- 8- Qual a média de preços dos livros da editora 'Koogan'?
+
+-- Verifica todos os livros da editora 'Koogan'
+SELECT *
+FROM LIVRO  
+WHERE EDITORA = 'Koogan';
+
+-- Resposta, a função AVG vai retornar a média de preços dos livros da editora
+SELECT AVG(PRECO) 
+FROM LIVRO  
+WHERE EDITORA = 'Koogan';
 
 -- 9- Quantos livros de Tecnologia há?
 
