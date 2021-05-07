@@ -15,8 +15,8 @@ SELECT * FROM VENDA WHERE CODLIVRO = 20;
 -- Resposta: retorna o nome do cliente que comprou o livro
 SELECT c.NOME 
 FROM CLIENTE c 
-INNER JOIN VENDA v ON c.IDCLIENTE = v.CODCLIENTE 
-AND v.CODLIVRO =20;
+	INNER JOIN VENDA v ON c.IDCLIENTE = v.CODCLIENTE 
+WHERE v.CODLIVRO =20;
 
 -- 3- Quais os livros  de autoria de  Machado de Assis?
 
@@ -26,10 +26,11 @@ FROM AUTOR
 WHERE NOME = 'Machado de Assis';
 
 -- Resposta: retorna os os livros do autor
-SELECT l.TITULO FROM LIVRO l 
-INNER JOIN AUTORLIVRO al ON l.CODLIVRO = al.CODLIVRO 
-INNER JOIN AUTOR a ON a.CODAUTOR = al.CODAUTOR  
-AND a.NOME = 'Machado de Assis';
+SELECT l.TITULO 
+FROM LIVRO l 
+	INNER JOIN AUTORLIVRO al ON l.CODLIVRO = al.CODLIVRO 
+	INNER JOIN AUTOR a ON a.CODAUTOR = al.CODAUTOR  
+WHERE a.NOME = 'Machado de Assis';
 
 -- 4- Qual o menor e maior preço de livros da área de  Tecnologia?
 
@@ -108,10 +109,8 @@ SELECT * FROM AUTORLIVRO a2 WHERE CODLIVRO = 70;
  */
 SELECT * 
 FROM LIVRO l 
-INNER JOIN AUTORLIVRO al 
-ON l.CODLIVRO = al.CODLIVRO 
-INNER JOIN AUTOR a 
-ON al.CODAUTOR = a.CODAUTOR 
+	INNER JOIN AUTORLIVRO al ON l.CODLIVRO = al.CODLIVRO 
+	INNER JOIN AUTOR a ON al.CODAUTOR = a.CODAUTOR 
 WHERE l.TITULO = 'Banco de Dados' ;
 
 -- 11- Quais os nomes e endereços dos clientes de Xapuri?
@@ -132,18 +131,18 @@ SELECT * FROM VENDA v2;
  * Observando pela quantidade tuplas na tabela de vendas realizadas para cada livro
  * não há mais de 1 venda por livro
  */
-SELECT l.TITULO , COUNT(v.CODLIVRO) FROM LIVRO l
-INNER JOIN VENDA v 
-ON l.CODLIVRO = v.CODLIVRO 
+SELECT l.TITULO , COUNT(v.CODLIVRO) 
+FROM LIVRO l
+	INNER JOIN VENDA v ON l.CODLIVRO = v.CODLIVRO 
 GROUP BY l.TITULO; 
 
 /**
  * Buscando pela quantidade de tuplas na tabela de vendas, maior que 2 vendas
  * também não há
  */
-SELECT l.TITULO , COUNT(v.CODLIVRO) FROM LIVRO l
-INNER JOIN VENDA v 
-ON l.CODLIVRO = v.CODLIVRO 
+SELECT l.TITULO , COUNT(v.CODLIVRO) 
+FROM LIVRO l
+	INNER JOIN VENDA v ON l.CODLIVRO = v.CODLIVRO 
 GROUP BY l.TITULO
 HAVING COUNT(l.CODLIVRO) > 2;
 
@@ -151,9 +150,9 @@ HAVING COUNT(l.CODLIVRO) > 2;
  * Filtrando pelo campo quantidade onde esta seria superior a 2 vendas
  * também não satisfaz a questão.
  */
-SELECT l.TITULO , v.QUANTIDADE FROM LIVRO l
-INNER JOIN VENDA v 
-ON l.CODLIVRO = v.CODLIVRO
+SELECT l.TITULO , v.QUANTIDADE 
+FROM LIVRO l
+	INNER JOIN VENDA v ON l.CODLIVRO = v.CODLIVRO
 WHERE v.QUANTIDADE > 2;
 
 -- Resposta sugerida: não há livros com mais de duas vendas
@@ -167,12 +166,35 @@ WHERE v.QUANTIDADE > 2;
  * 
  * Onde livro é a tabela da esqueda e venda é a tabela da direita
  */
-SELECT * FROM LIVRO 
-LEFT JOIN VENDA
-ON LIVRO.CODLIVRO = VENDA.CODLIVRO 
+SELECT l.* 
+FROM LIVRO l
+	LEFT JOIN VENDA ON l.CODLIVRO = VENDA.CODLIVRO 
 WHERE ISNULL(VENDA.CODLIVRO) ; 
 
+/**
+ * A instrução abaixo  produz o mesmo resultado
+ * usando a função NOT EXISTS
+ */
+SELECT l.* 
+FROM LIVRO l 
+WHERE NOT EXISTS (
+	SELECT * FROM VENDA v WHERE l.CODLIVRO = v.CODLIVRO);
+
 -- 14- Quanto o cliente 3000 gastou em compra de livros?
+ 
+ -- listo aqui todas as vendas do cliente
+ SELECT * 
+ FROM CLIENTE c 
+ 	INNER JOIN VENDA v ON c.IDCLIENTE = v.CODCLIENTE 
+ WHERE c.IDCLIENTE = 3000;
+
+-- Resposta: utilizo a função sum pra retonrar o gasto em compra de livros
+SELECT c.IDCLIENTE , c.NOME , SUM(v.VALORPAGO) as TOTAL_GASTO
+FROM CLIENTE c 
+	INNER JOIN VENDA v ON c.IDCLIENTE = v.CODCLIENTE 
+WHERE c.IDCLIENTE = 3000;
 
 -- 15- Quais os nomes dos clientes que estão sem endereço?
 
+-- Resposta
+SELECT c.NOME FROM CLIENTE c WHERE c.ENDERECO is NULL;
