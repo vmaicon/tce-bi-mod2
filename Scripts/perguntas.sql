@@ -1,3 +1,19 @@
+/**
+ * TRIBUNAL DE CONTAS DO ESTADO DO ACRE - TCE
+ * 
+ * FUNDAÇÃO PARQUE TECNOLÓGICO DA PARAÍBA - PAQTCPB
+ * 
+ * Treinamento em BI e Ciência de Dados
+ * 
+ * Módulo: Gestão de Dados Relacionais em Ciência de Dados
+ * 
+ * Exercício de Avaliação - SQL
+ * 
+ * 
+ * Aluno 1: Maicon Vasconcelos de Araújo
+ */
+
+
 -- Usando SQL, responda ao menos 10 das questões abaixo de 1 a 15.
 
 -- 1- Quais os títulos dos livros  da área  'Romance' publicados antes de 2010?
