@@ -2,8 +2,8 @@
 
 - O projeto foi dividido em 3 versões, cada uma delas com um detalhamento sobre o código, pra utilziar baixa baixar no formato *zip* ou *tar*
 - Em [releases](https://github.com/vmaicon/tce-bi-mod2/releases) tem a descrição de cada versão e os arquios de download para baixar os codigos.
-- Versão [v1.1.0](https://github.com/vmaicon/tce-bi-mod2/releases/tag/v1.1.0): 
-- Versão [v1.0.0](https://github.com/vmaicon/tce-bi-mod2/releases/tag/v1.0.0): 
+- Versão [v1.1.0](https://github.com/vmaicon/tce-bi-mod2/releases/tag/v1.1.0): Limpeza... respostas e organização do código
+- Versão [v1.0.0](https://github.com/vmaicon/tce-bi-mod2/releases/tag/v1.0.0): Consultas para ajudar nas questões 
  
 ## Na pasta [sripts](https://github.com/vmaicon/tce-bi-mod2/tree/main/Scripts) tem os arquivos:
 - [estrutra.sql](https://github.com/vmaicon/tce-bi-mod2/blob/main/Scripts/estrutura.sql): Estrutura do banco e tabelas
