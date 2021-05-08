@@ -1,7 +1,7 @@
 # Exercício de avaliação do módulo 2
 
 - O projeto foi dividido em 3 versões, cada uma delas com um detalhamento sobre o código, pra utilziar baixa baixar no formato *zip* ou *tar*
-- Em [releases](https://github.com/vmaicon/tce-bi-mod2/releases) tem a descrição de cada versão
+- Em [releases](https://github.com/vmaicon/tce-bi-mod2/releases) tem a descrição de cada versão e os arquios de download para baixar os codigos.
 - Versão [v1.1.0](https://github.com/vmaicon/tce-bi-mod2/releases/tag/v1.1.0): 
 - Versão [v1.0.0](https://github.com/vmaicon/tce-bi-mod2/releases/tag/v1.0.0): 
  
